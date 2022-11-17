@@ -1,0 +1,31 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Note Taking",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HitheshMedavarapu/Project.git"
+  },
+  "keywords": [
+    "Note",
+    "taking"
+  ],
+  "author": "Hithesh Medavarapu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HitheshMedavarapu/Project/issues"
+  },
+  "homepage": "https://github.com/HitheshMedavarapu/Project#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
