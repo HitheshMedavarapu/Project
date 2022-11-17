@@ -7,115 +7,74 @@ if(login) login.addEventListener('submit',loginFunc)
 if(register) register.addEventListener('submit',regFunc)
 if(note) note.addEventListener('submit',noteFunc)
 
-function loginFunc(e)
-{
+function loginFunc(e){
     e.preventDefault();
-    let username=document.getElementById('userName').value;
-    let password=document.getElementById('passWord').value;
+    let uname=document.getElementById('userName').value;
+    let pword=document.getElementById('passWord').value;
 
+    const User1 = new User(uname, pword, null, null, null);
+    console.log(User1);
 
-    class User{
-        constructor(username,password)
-        {
-            this.uname=username;
-            this.pword=password;
-        }
-    
-    
-    
-    getuname(){
-        return this.uname;
-    }
-    setuname(newusername){
-        this.uname = username;
-    }
-    getpword(){
-        return this.pword;
-    }
-    setpword(newpassword){
-        this.pword = password
-    }
-
-    }
-
-    const Userl=new User(username,password);
-    console.log(Userl);
-
+    document.getElementById("login-Form").reset();
 }
 
-
-function regFunc(e)
-{
-    e.preventDefault()
+function regFunc(e){
+    e.preventDefault();
+    let uname=document.getElementById('userName').value;
+    let pword=document.getElementById('passWord').value;
     let fname=document.getElementById('firstName').value;
     let lname=document.getElementById('lastName').value;
     let email=document.getElementById('eMail').value;
-    let password=document.getElementById('passWord').value;
 
-    class User{
-        constructor(fname,lname,email,password)
-        {
-            this.firstname=fname;
-            this.lastname=lname;
-            this.email=email;
-            this.password=password;
-        }
-        getemail(){
-            return this.email;
-        }
-        setemail(newemail){
-            this.email = newemail;
-        }
-        getpassword(){
-            return this.password;
-        }
-        setpassword(newpassword){
-            this.password=newpassword
-        }
-        getfirstname(){
-            return this.firstname;
-        }
-        setfirstname(newfirstname){
-            this.firstname = newfirstname;
-        }
-        getlastname(){
-            return this.lastname;
-        }
-        setlastname(newlastname){
-            this.lastname=newlastname;
-        }
-    }
+    const User1 = new User(uname, pword, fname, lname, email);
+    console.log(User1);
 
-    const user1=new User(fname,lname,email,password);
-    console.log(user1);
+    document.getElementById("register-Form").reset();
 }
 
-
-function noteFunc(e)
-{
+function noteFunc(e){
     e.preventDefault();
-    let takenotes=document.getElementById('takeNotes').value;
+    let notes=document.getElementById('takeNotes').value;
 
-    class User{
-        constructor(takenotes)
-        {
-            this.tnotes=takenotes;
-        }
-    
-    
-    gettnotes(){
-        return this.tnotes;
-    }
-    settnotes(takenotes){
-        this.tnotes = takenotes;
-    }
-   
+    const Note1 = new Note(notes);
+    console.log(Note1);
 
-    }
-
-    const Userl=new User(takenotes);
-    console.log(Userl);
-
+    document.getElementById("note-Form").reset();
 }
 
+function User(uname, pword, fname, lname, email)
+{
+    this.username = uname;
+    this.password = pword;
+    this.firstName = fname;
+    this.lastName = lname;
+    this.emailid = email;
+
+    User.prototype.getusername = function(){
+        return `${this.username}`
+    }
+    User.prototype.getpassword = function(){
+        return `${this.password}`
+    }
+    User.prototype.getemail = function(){
+        return `${this.email}`
+    }
+    User.prototype.getfirstname = function(){
+        return `${this.firstName}`
+    }
+    User.prototype.getlastname = function(){
+        return `${this.lastName}`
+    }
+    
+}
+
+
+function Note(notes)
+{
+    this.takeNotes = notes;
+
+    User.prototype.getnotes = function(){
+        return `${this.takeNotes}`
+    }
+}
 
