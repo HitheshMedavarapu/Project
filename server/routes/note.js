@@ -1,5 +1,5 @@
 const express = require('express'); 
-const Note = require('../models/user');
+const Note = require('../models/note');
 const router = express.Router();
 
 router.get('/', (req, res) => {

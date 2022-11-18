@@ -91,7 +91,7 @@ function getUsers()
     fetch("http://localhost:3000/users")
     .then((res)=>res.json())
     .then((data) => {
-        /*let ul=document.getElementById("allUsers");*/
+        
         data.forEach((user) => {
             let section = `
             <div class="uprint">
@@ -131,4 +131,4 @@ function getUsers()
     })
     .catch((err)=>console.log(`Error! ${err}`));
 }
-**/
+****/
