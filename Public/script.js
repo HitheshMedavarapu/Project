@@ -79,12 +79,11 @@ function Note(notes)
     }
 }
 
-/********************************** */
+/**** USER ******/
 
-/**const usersBtn=document.getElementById("users-btn");
-if(usersBtn)usersBtn.addEventListener('click',getUsers);**/
 
-const logSection = document.getElementById("hii");
+
+const loginprinting = document.getElementById("userprint");
 document.getElementById("users-btn").addEventListener('click', getUsers);
 
 function getUsers()
@@ -92,17 +91,44 @@ function getUsers()
     fetch("http://localhost:3000/users")
     .then((res)=>res.json())
     .then((data) => {
-        let ul=document.getElementById("allUsers");
+        /*let ul=document.getElementById("allUsers");*/
         data.forEach((user) => {
             let section = `
-            <div class="log">
+            <div class="uprint">
                 <h3>${user.userName}</h3>
                 <h3>${user.password}</h3>
                 <br>
             </div>
             `
-            logSection.innerHTML+=section;
+            loginprinting.innerHTML+=section;
         })
     })
     .catch((err)=>console.log(`Error! ${err}`));
 }
+
+
+/*****   NOTES   
+
+
+const noteprinting = document.getElementById("noteprint");
+document.getElementById("notes-btn").addEventListener('click', getNotes);
+
+function getUsers()
+{
+    fetch("http://localhost:3000/notes")
+    .then((res)=>res.json())
+    .then((data) => {
+        let ul=document.getElementById("allNotes");
+        data.forEach((note) => {
+            let section = `
+            <div class="nprint">
+                <h3>${note.feedback}</h3>
+                <br>
+            </div>
+            `
+            noteprinting.innerHTML+=section;
+        })
+    })
+    .catch((err)=>console.log(`Error! ${err}`));
+}
+**/
