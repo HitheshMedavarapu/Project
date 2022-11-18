@@ -107,13 +107,15 @@ function getUsers()
 }
 
 
-/*****   NOTES   
 
+/**   NOTES   **/
+
+/***
 
 const noteprinting = document.getElementById("noteprint");
 document.getElementById("notes-btn").addEventListener('click', getNotes);
 
-function getUsers()
+function getNotes()
 {
     fetch("http://localhost:3000/notes")
     .then((res)=>res.json())
@@ -130,5 +132,4 @@ function getUsers()
         })
     })
     .catch((err)=>console.log(`Error! ${err}`));
-}
-****/
+}*/
