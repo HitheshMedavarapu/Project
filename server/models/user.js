@@ -10,7 +10,7 @@ const users = [
   {
     userName: "bobbyjones",
     password: "incorrect"
-  }
+  },
   {
     userName: "UppalBaal",
     password: "potatopancake"
