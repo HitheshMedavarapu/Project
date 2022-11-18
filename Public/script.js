@@ -42,13 +42,14 @@ function noteFunc(e){
     document.getElementById("note-Form").reset();
 }
 
-function User(uname, pword, fname, lname, email)
+function User(uname, pword, fname, lname, email, userid)
 {
     this.username = uname;
     this.password = pword;
     this.firstName = fname;
     this.lastName = lname;
     this.emailid = email;
+
 
     User.prototype.getusername = function(){
         return `${this.username}`
@@ -78,3 +79,30 @@ function Note(notes)
     }
 }
 
+/********************************** */
+
+/**const usersBtn=document.getElementById("users-btn");
+if(usersBtn)usersBtn.addEventListener('click',getUsers);**/
+
+const logSection = document.getElementById("hii");
+document.getElementById("users-btn").addEventListener('click', getUsers);
+
+function getUsers()
+{
+    fetch("http://localhost:3000/users")
+    .then((res)=>res.json())
+    .then((data) => {
+        let ul=document.getElementById("allUsers");
+        data.forEach((user) => {
+            let section = `
+            <div class="log">
+                <h3>${user.userName}</h3>
+                <h3>${user.password}</h3>
+                <br>
+            </div>
+            `
+            logSection.innerHTML+=section;
+        })
+    })
+    .catch((err)=>console.log(`Error! ${err}`));
+}
