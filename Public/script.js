@@ -1,11 +1,11 @@
 
 const login = document.getElementById("login-Form");
 const register = document.getElementById("register-Form");
-const note = document.getElementById("note-Form")
+
 
 if(login) login.addEventListener('submit',loginFunc)
 if(register) register.addEventListener('submit',regFunc)
-if(note) note.addEventListener('submit',noteFunc)
+
 
 function loginFunc(e){
     e.preventDefault();
@@ -32,15 +32,7 @@ function regFunc(e){
     document.getElementById("register-Form").reset();
 }
 
-function noteFunc(e){
-    e.preventDefault();
-    let notes=document.getElementById('takeNotes').value;
 
-    const Note1 = new Note(notes);
-    console.log(Note1);
-
-    document.getElementById("note-Form").reset();
-}
 
 function User(uname, pword, fname, lname, email, userid)
 {
@@ -70,14 +62,6 @@ function User(uname, pword, fname, lname, email, userid)
 }
 
 
-function Note(notes)
-{
-    this.takeNotes = notes;
-
-    User.prototype.getnotes = function(){
-        return `${this.takeNotes}`
-    }
-}
 
 /**** USER ******/
 
@@ -110,26 +94,5 @@ function getUsers()
 
 /**   NOTES   **/
 
-/***
 
-const noteprinting = document.getElementById("noteprint");
-document.getElementById("notes-btn").addEventListener('click', getNotes);
 
-function getNotes()
-{
-    fetch("http://localhost:3000/notes")
-    .then((res)=>res.json())
-    .then((data) => {
-        let ul=document.getElementById("allNotes");
-        data.forEach((note) => {
-            let section = `
-            <div class="nprint">
-                <h3>${note.feedback}</h3>
-                <br>
-            </div>
-            `
-            noteprinting.innerHTML+=section;
-        })
-    })
-    .catch((err)=>console.log(`Error! ${err}`));
-}*/

@@ -1,6 +1,15 @@
 const notes = [
     {
-        feedback: "Hii andi uppal baal"
+        feedback: "Hello"
+    },
+    {
+        feedback: "My Name is Hithesh Medavarapu"
+    },
+    {
+        feedback: "I like soccer"
+    },
+    {
+        feedback: "I believe Messi is the best player in the game"
     }
 ]
 
