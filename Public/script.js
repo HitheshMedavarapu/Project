@@ -1,11 +1,11 @@
 
 const login = document.getElementById("login-Form");
 const register = document.getElementById("register-Form");
-const note = document.getElementById("note-Form")
+
 
 if(login) login.addEventListener('submit',loginFunc)
 if(register) register.addEventListener('submit',regFunc)
-if(note) note.addEventListener('submit',noteFunc)
+
 
 function loginFunc(e){
     e.preventDefault();
@@ -32,24 +32,41 @@ function regFunc(e){
     document.getElementById("register-Form").reset();
 }
 
-function noteFunc(e){
-    e.preventDefault();
-    let notes=document.getElementById('takeNotes').value;
-
-    const Note1 = new Note(notes);
-    console.log(Note1);
-
-    document.getElementById("note-Form").reset();
-}
-
+/*
+class User {
+    constructor(uname, pword, fname,lname, email) {
+        this.userName = uname;
+        this.password = pword;
+        this.firstName = fname;
+        this.lastName = lname;
+        this.emailId = email;
+    }
+  
+    getUsername() {
+      return this.userName;
+    }
+    getpassword(){
+        return this.password;
+    }
+    getfirstname(){
+        return this.firstName;
+    }
+    getlastname(){
+        return this.lastName;
+    }
+    getemail(){
+        return this.emailId;
+    }
+  }
+*/
 function User(uname, pword, fname, lname, email, userid)
 {
-    this.username = uname;
+    this.userName = uname;
     this.password = pword;
     this.firstName = fname;
     this.lastName = lname;
     this.emailid = email;
-
+    this.userID = userid;
 
     User.prototype.getusername = function(){
         return `${this.username}`
@@ -66,18 +83,12 @@ function User(uname, pword, fname, lname, email, userid)
     User.prototype.getlastname = function(){
         return `${this.lastName}`
     }
-    
-}
-
-
-function Note(notes)
-{
-    this.takeNotes = notes;
-
-    User.prototype.getnotes = function(){
-        return `${this.takeNotes}`
+    User.prototype.getuserid = function(){
+        return `${this.userID}`
     }
 }
+
+
 
 /**** USER ******/
 
@@ -107,28 +118,17 @@ function getUsers()
 }
 
 
-/*****   NOTES   
 
+/*register functionality
+let regForm = document.getElementById("reg-form");
+if(regForm) regForm.addEventListener('submit', register);
 
-const noteprinting = document.getElementById("noteprint");
-document.getElementById("notes-btn").addEventListener('click', getNotes);
+function register(e) {
+    e.preventDefault();
 
-function getUsers()
-{
-    fetch("http://localhost:3000/notes")
-    .then((res)=>res.json())
-    .then((data) => {
-        let ul=document.getElementById("allNotes");
-        data.forEach((note) => {
-            let section = `
-            <div class="nprint">
-                <h3>${note.feedback}</h3>
-                <br>
-            </div>
-            `
-            noteprinting.innerHTML+=section;
-        })
-    })
-    .catch((err)=>console.log(`Error! ${err}`));
+    let userName = document.getElementById("username").value;
+    let password = document.getElementById("pword").value;
+
+    let user = new User(userName, password);        
 }
-****/
+*/
