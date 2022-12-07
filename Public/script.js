@@ -32,6 +32,7 @@ function regFunc(e){
     document.getElementById("register-Form").reset();
 }
 
+<<<<<<< HEAD
 /*
 class User {
     constructor(uname, pword, fname,lname, email) {
@@ -59,6 +60,10 @@ class User {
     }
   }
 */
+=======
+
+
+>>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
 function User(uname, pword, fname, lname, email, userid)
 {
     this.userName = uname;
@@ -83,10 +88,17 @@ function User(uname, pword, fname, lname, email, userid)
     User.prototype.getlastname = function(){
         return `${this.lastName}`
     }
+<<<<<<< HEAD
     User.prototype.getuserid = function(){
         return `${this.userID}`
     }
 }
+=======
+    
+}
+
+
+>>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
 
 
 
@@ -118,11 +130,17 @@ function getUsers()
 }
 
 
+<<<<<<< HEAD
+=======
+
+/**   NOTES   **/
+>>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
 
 /*register functionality
 let regForm = document.getElementById("reg-form");
 if(regForm) regForm.addEventListener('submit', register);
 
+<<<<<<< HEAD
 function register(e) {
     e.preventDefault();
 
@@ -132,3 +150,6 @@ function register(e) {
     let user = new User(userName, password);        
 }
 */
+=======
+
+>>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
