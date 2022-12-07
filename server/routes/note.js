@@ -3,7 +3,7 @@ const express = require('express');
 const Note = require('../models/note');
 const router = express.Router();
 
-<<<<<<< HEAD
+
 router
   .get('/', async (req, res) => {
     try {
@@ -13,7 +13,7 @@ router
       res.status(401).send({message: err.message});
     }
   })
-=======
+
 router.get('/', (req, res) => {
   try {
     const notes = Note.getNotes(); 
@@ -22,9 +22,9 @@ router.get('/', (req, res) => {
     res.status(401).send({message: error.message});
   }
 });
->>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
 
-  .post('/Read', async (req, res) => {
+
+  router.post('/Read', async (req, res) => {
     try {
       let note = await Note.Read(req.body);
       res.send({...note,noteContent})

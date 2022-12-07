@@ -6,11 +6,10 @@ const path = require('path');
 
 const userRoutes = require('./server/routes/user')
 const noteRoutes = require('./server/routes/note')
-<<<<<<< HEAD
+
 
 app.use(express.json());
-=======
->>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
+
 
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
@@ -22,12 +21,12 @@ app.use(function(req,res,next){
 app.use('/users', userRoutes);
 app.use('/notes', noteRoutes);
 
-<<<<<<< HEAD
+
 // app.get('*', function(req,res){
 //     res.sendFile(path.resolve(__dirname,'public','login.html'));
 //     res.sendFile(path.resolve(__dirname,'public','note.html'));
 // });
-=======
+
 app.get('*', function(req,res){
     res.sendFile(path.resolve(__dirname,'public','login.html'));
     res.sendFile(path.resolve(__dirname,'public','note.html'));
@@ -65,11 +64,11 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT} !`));
 
 
 <<<<<<< HEAD
-=======
+
 
 */
 
 
 
 
->>>>>>> 93536191c38330e9b2f0a3ea637817d7a03fe3ad
+
