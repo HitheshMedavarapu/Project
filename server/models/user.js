@@ -43,12 +43,12 @@ async function userExists(username) {
 }
 
 
-async function login(username, password) {
-  const user = await userExists(username);
-  if(!user[0]) throw Error('User not found');
-  if(user[0].password !== password) throw Error('Password is incorrect.');
+async function login(user) {
+  const currentuser = await getUser(user);
+  if(!currentuser[0]) throw Error('User not found');
+  if(currentuser[0].password !== user.password) throw Error('Password is incorrect.');
 
-  return user[0];
+  return currentuser[0];
 }
 
 async function register(user){
