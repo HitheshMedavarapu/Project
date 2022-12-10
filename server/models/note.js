@@ -1,39 +1,39 @@
-const con=require("./db_connect");  
-               // we need this file because we need connection
+const con = require("./db_connect");                // we need this file because we need connection
 
 async function createTable(){
     let sql=`CREATE TABLE if not exists notes(
         noteID INT NOT NULL AUTO_INCREMENT,
-        note VARCHAR(100) NOT NULL UNIQUE,
+        note VARCHAR(255) NOT NULL UNIQUE,
         userID INT,
         CONSTRAINT notePK PRIMARY KEY(noteID),
         CONSTRAINT FOREIGN KEY (userID) REFERENCES users(userID)
+        
     );`
     await con.query(sql);                            // we need await when used async
 }
-
+//  
+//
 createTable();
 
-/*async function getAllNotes() {
+async function getAllNotes() {
     const sql = `SELECT * FROM notes;`;
     let notes = await con.query(sql);
     console.log(notes)
   }
-  */
 
-  async function createNotes(note){
+  async function createNote(note){
 
     let cNote=await getNote(note);
 
-
-    const sql=`INSERT INTO notes(note,userID) VALUES ("${note.note}",${user.userID});`
+    const sql=`INSERT INTO notes(note,userID) VALUES ("${note.note}",${note.userID});`
+    //const sql=`INSERT INTO notes(note) VALUES ("${note.note}");`
 
     await con.query(sql);
-
+    return cNote[0];
     
 }
 
-  async function editNotes(note){
+  async function editNote(note){
     let sql=`update notes SET note="${note.note}" where noteID=${note.noteID}`;
 
     await con.query(sql);
@@ -42,13 +42,14 @@ createTable();
     return updatedNote[0];
 }
 
-async function deleteNotes(note){
-    let sql=`Delete from users where noteID=${note.noteID}`;
+async function deleteNote(note){
+    let sql=`Delete from notes where noteID=${note.noteID}`;
 
     await con.query(sql);
+
 }
 
-async function getNotes(note){
+/*async function getNote(note){
     let sql;
 
     if(note.noteID){
@@ -62,22 +63,18 @@ async function getNotes(note){
     return await con.query(sql);
 }
 
-module.exports = {getNotes, createNotes, editNotes, deleteNotes};
-/*const notes = [
-    {
-        feedback: "Hello"
-    },
-    {
-        feedback: "My Name is Hithesh Medavarapu"
-    },
-    {
-        feedback: "I like soccer"
-    },
-    {
-        feedback: "I believe Messi is the best player in the game"
-    }
-]
 
-let getNotes = () => notes;
-module.exports = { getNotes };
-*/
+const notes=[{
+    noteId:1233,
+    notecontent:"Hello"
+},{
+    noteId:9383,
+    notecontent:"How r u??"
+},
+];*/
+
+function getAllNotes(){
+    return notes;
+}
+
+module.exports={getAllNotes,editNote,deleteNote,createNote};
