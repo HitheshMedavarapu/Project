@@ -49,7 +49,7 @@ async function deleteNote(note){
 
 }
 
-/*async function getNote(note){
+async function getNote(note){
     let sql;
 
     if(note.noteID){
@@ -63,7 +63,7 @@ async function deleteNote(note){
     return await con.query(sql);
 }
 
-
+/*
 const notes=[{
     noteId:1233,
     notecontent:"Hello"
