@@ -1,3 +1,5 @@
+import { fetchData, setCurrentUser } from './main.js'
+
 const note = document.getElementById("note-Form")
 
 if(note) note.addEventListener('submit',noteFunc)
@@ -5,6 +7,16 @@ if(note) note.addEventListener('submit',noteFunc)
 function noteFunc(e){
     e.preventDefault();
     let notes=document.getElementById('takeNotes').value;
+
+    fetchData("/notes", note, "POST")
+    .then((data) => {
+    setCurrentNote(data);
+    window.location.href = "note.html";
+    })
+    .catch((err) =>{
+    let p = document.querySelector('.error');
+    p.innerHTML = err.message;
+    })
 
     const Note1 = new Note(notes);
     console.log(Note1);

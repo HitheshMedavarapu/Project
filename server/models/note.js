@@ -6,7 +6,7 @@ async function createTable(){
         note VARCHAR(255) NOT NULL UNIQUE,
         userID INT,
         CONSTRAINT notePK PRIMARY KEY(noteID),
-        CONSTRAINT FOREIGN KEY (userID) REFERENCES users(userID)
+        CONSTRAINT note_Fk FOREIGN KEY (userID) REFERENCES users(userID)
         
     );`
     await con.query(sql);                            // we need await when used async

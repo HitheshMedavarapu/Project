@@ -4,10 +4,10 @@ const con = require("./db_connect");
 async function createTable(){
   let sql = `CREATE TABLE IF NOT EXISTS users (
     userID INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    user_fname VARCHAR(255),
-    user_lname VARCHAR(255),
-    user_email VARCHAR(255),
+    userName VARCHAR(255) NOT NULL UNIQUE,
+    firstName VARCHAR(255),
+    lastName VARCHAR(255),
+    emailid VARCHAR(255),
     password VARCHAR(255),
     CONSTRAINT userPK PRIMARY KEY(userID)
     );`
@@ -27,7 +27,7 @@ async function getUser(user) {
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE username = "${user.username}"
+      WHERE userName = "${user.userName}"
   `;
   }
   return await con.query(sql);  
@@ -35,7 +35,7 @@ async function getUser(user) {
 
 async function userExists(username) {
   const sql = `SELECT * FROM users
-    WHERE username = "${username}" 
+    WHERE userName = "${username}" 
   `;
   let u = await con.query(sql);
   console.log(u);
@@ -48,15 +48,15 @@ async function login(user) {
   if(!currentuser[0]) throw Error('User not found');
   if(currentuser[0].password !== user.password) throw Error('Password is incorrect.');
 
-  return currentuser[0];
+  //return currentuser[0];
 }
 
 async function register(user){
   const u = userExists(user.username);
   if(u.length>0) throw Error('Username already exists')
 
-  const sql = `INSERT INTO users (username, password, user_fname, user_lname, user_email)
-    VALUES ( "${user.username}", "${user.password}", "${user.fname}", "${user.lname}", "${user.email}" 
+  const sql = `INSERT INTO users (userName, password, firstName, lastName, emailid)
+    VALUES ( "${user.userName}", "${user.password}", "${user.firstName}", "${user.lastName}", "${user.emailid}" 
     )`;
 
   const insert = await con.query(sql);

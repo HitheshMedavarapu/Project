@@ -1,3 +1,4 @@
+import { fetchData, setCurrentUser, removeCurrentUser, getCurrentUser } from './main.js'
 
 const login = document.getElementById("login-Form");
 const register = document.getElementById("register-Form");
@@ -12,8 +13,20 @@ function loginFunc(e){
     let uname=document.getElementById('userName').value;
     let pword=document.getElementById('passWord').value;
 
-    const User1 = new User(uname, pword);
+    const User1 = new User(uname, pword, "", "", "", "");
     console.log(User1);
+
+    fetchData("/users/login", User1, "POST")
+    .then((data) => {
+      setCurrentUser(data);
+      window.location.href = "note.html";
+      let current_user = getCurrentUser();
+      fetchData("/users/login",current_user,"GET")
+    })
+    .catch((err) => {
+      let p = document.querySelector('.error');
+      p.innerHTML = err.message;
+    }) 
 
     document.getElementById("login-Form").reset();
 }
@@ -28,6 +41,16 @@ function regFunc(e){
 
     const User1 = new User(uname, pword, fname, lname, email);
     console.log(User1);
+
+    fetchData("/users/register", User1, "POST")
+    .then((data) => {
+      setCurrentUser(data);
+      window.location.href = "note.html";
+    })
+    .catch((err) =>{
+      let p = document.querySelector('.error');
+      p.innerHTML = err.message;
+    })
 
     document.getElementById("register-Form").reset();
 }
@@ -101,7 +124,7 @@ function User(uname, pword, fname, lname, email, userid)
 /**** USER ******/
 
 
-
+/*
 const loginprinting = document.getElementById("userprint");
 document.getElementById("users-btn").addEventListener('click', getUsers);
 
@@ -124,6 +147,7 @@ function getUsers()
     })
     .catch((err)=>console.log(`Error! ${err}`));
 }
+*/
 
 
 
