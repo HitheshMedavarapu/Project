@@ -26,7 +26,7 @@ router.get('/',async (req,res)=>{
   .delete('/delete', async (req, res) => {
     try {
       Note.deleteNote(req.body);
-      res.send({success: "We'll Miss You... :("})
+      res.send({success: "Note deleted successfully!"})
     } catch(err) {
       res.status(401).send({message: err.message})
     }

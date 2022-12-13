@@ -11,22 +11,35 @@ if(register) register.addEventListener('submit',regFunc)
 function loginFunc(e){
     e.preventDefault();
     let uname=document.getElementById('userName').value;
-    let pword=document.getElementById('passWord').value;
+    let pword=document.getElementById('password').value;
 
-    const User1 = new User(uname, pword, "", "", "", "");
+    const User1 = new User(uname, pword, "", "", "");
     console.log(User1);
+    //console.log(fetchData("/users/login", User1, "POST"))
 
     fetchData("/users/login", User1, "POST")
     .then((data) => {
       setCurrentUser(data);
+      console.log("hi")
+      window.location.href = "note.html";
+    })
+    .catch((err) =>{
+      let p = document.querySelector('.error');
+      p.innerHTML = err.message;
+    })
+
+    /*fetchData("/users/login", User1, "POST")
+    .then((data) => {
+      setCurrentUser(data);
       window.location.href = "note.html";
       let current_user = getCurrentUser();
+      console.log("hii");
       fetchData("/users/login",current_user,"GET")
     })
     .catch((err) => {
       let p = document.querySelector('.error');
       p.innerHTML = err.message;
-    }) 
+    }) */
 
     document.getElementById("login-Form").reset();
 }

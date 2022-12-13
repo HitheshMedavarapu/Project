@@ -1,4 +1,4 @@
-import { fetchData, setCurrentUser } from './main.js'
+import { fetchData, getCurrentUser, setCurrentUser } from './main.js'
 
 const note = document.getElementById("note-Form")
 
@@ -8,9 +8,13 @@ function noteFunc(e){
     e.preventDefault();
     let notes=document.getElementById('takeNotes').value;
 
-    fetchData("/notes", note, "POST")
+    let note = new Note(notes);
+    let user = getCurrentUser();
+    note.userID = user.userID;
+
+    fetchData("/notes/create", note, "POST")
     .then((data) => {
-    setCurrentNote(data);
+    //setCurrentNote(data);
     window.location.href = "note.html";
     })
     .catch((err) =>{
@@ -28,11 +32,11 @@ function Note(notes)
 {
     this.takeNotes = notes;
 
-    User.prototype.getnotes = function(){
+    Note.prototype.getnotes = function(){
         return `${this.takeNotes}`
     }
 }
-
+/*
 const noteprinting = document.getElementById("noteprint");
 document.getElementById("notes-btn").addEventListener('click', getNotes);
 
@@ -54,3 +58,4 @@ function getNotes()
     })
     .catch((err)=>console.log(`Error! ${err}`));
 }
+*/

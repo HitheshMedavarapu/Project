@@ -54,7 +54,7 @@ export function setCurrentUser(user) {
 
 // getting current user function
 export function getCurrentUser() {
-  console.log("${user}");
+  //console.log("${user}");
   return JSON.parse(localStorage.getItem('user'));
 }
 
