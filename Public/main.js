@@ -1,25 +1,23 @@
 let nav = document.querySelector('nav');
-/*
+
 if(getCurrentUser()) {
   nav.innerHTML = `
     <ul>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a id="logout-btn">Logout</a></li>
+      <li><a href="login.html">LOGIN</a></li>
+      <li><a href="register.html">REGISTER</a></li>
+      <li><a id="logout-btn">LOGOUT</a></li>
     </ul>
   `
-} 
-
-else {
+} else {
   nav.innerHTML = `
     <ul>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="register.html">Sign Up</a></li>
+      <li><a href="login.html">LOGIN</a></li>
+      <li><a href="register.html">REGISTER</a></li>
+      <li><a href="login.html">ABOUT</a></li>
     </ul>
   `
 }
-*/
+
 
 // Fetch method implementation:
 export async function fetchData(route, data = {}, methodType) {
@@ -62,4 +60,13 @@ export function getCurrentUser() {
 export function removeCurrentUser() {
   localStorage.removeItem('user');
   window.location.href = "login.html";
+}
+
+export function setCurrentNote(note) {
+  localStorage.setItem('note', JSON.stringify(note));
+}
+
+// getting current note function
+export function getCurrentNote() {
+  return JSON.parse(localStorage.getItem('note'));
 }

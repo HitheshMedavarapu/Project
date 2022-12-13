@@ -1,4 +1,4 @@
-import { fetchData, setCurrentUser, removeCurrentUser, getCurrentUser } from './main.js'
+import { fetchData, setCurrentUser, removeCurrentUser, getCurrentUser, setCurrentNote } from './main.js'
 
 const login = document.getElementById("login-Form");
 const register = document.getElementById("register-Form");
@@ -127,6 +127,10 @@ function User(uname, pword, fname, lname, email, userid)
 }
 
     
+
+
+
+
 
 
 

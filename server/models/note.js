@@ -34,7 +34,7 @@ async function getAllNotes() {
 }
 
   async function editNote(note){
-    let sql=`update notes SET note="${note.note}" where noteID=${note.noteID}`;
+    let sql=`update notes SET note="${note.takeNotes}" where noteID=${note.noteID}`;
 
     await con.query(sql);
     let updatedNote=await getNote(note);
@@ -52,12 +52,12 @@ async function deleteNote(note){
 async function getNote(note){
     let sql;
 
-    if(note.noteID){
-        sql=`select * from notes where noteID=${note.noteID}`;
+    if(note.userID){
+        sql=`select * from notes where userID=${note.userID};`;
 
     }
     else{
-        sql=`select * from notes where note="${note.note}"`;
+        sql=`select * from notes where noteID =${note.noteID};`;
     }
 
     return await con.query(sql);
@@ -77,4 +77,4 @@ function getAllNotes(){
     return notes;
 }
 
-module.exports={getAllNotes,editNote,deleteNote,createNote};
+module.exports={getNote,editNote,deleteNote,createNote};
