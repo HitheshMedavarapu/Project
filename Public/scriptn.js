@@ -70,27 +70,3 @@ if(user && noteForm) getNotes();
 
      //window.location.href="note.html";
  }
-
-/*
-const noteprinting = document.getElementById("noteprint");
-document.getElementById("notes-btn").addEventListener('click', getNotes);
-
-function getNotes()
-{
-    fetch("http://localhost:3000/notes")
-    .then((res)=>res.json())
-    .then((data) => {
-        let ul=document.getElementById("allNotes");
-        data.forEach((note) => {
-            let section = `
-            <div class="nprint">
-                <h3>${note.feedback}</h3>
-                <br>
-            </div>
-            `
-            noteprinting.innerHTML+=section;
-        })
-    })
-    .catch((err)=>console.log(`Error! ${err}`));
-}
-*/

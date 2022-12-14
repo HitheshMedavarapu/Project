@@ -28,18 +28,7 @@ function loginFunc(e){
       p.innerHTML = err.message;
     })
 
-    /*fetchData("/users/login", User1, "POST")
-    .then((data) => {
-      setCurrentUser(data);
-      window.location.href = "note.html";
-      let current_user = getCurrentUser();
-      console.log("hii");
-      fetchData("/users/login",current_user,"GET")
-    })
-    .catch((err) => {
-      let p = document.querySelector('.error');
-      p.innerHTML = err.message;
-    }) */
+
 
     document.getElementById("login-Form").reset();
 }
@@ -68,34 +57,6 @@ function regFunc(e){
     document.getElementById("register-Form").reset();
 }
 
-
-/*
-class User {
-    constructor(uname, pword, fname,lname, email) {
-        this.userName = uname;
-        this.password = pword;
-        this.firstName = fname;
-        this.lastName = lname;
-        this.emailId = email;
-    }
-  
-    getUsername() {
-      return this.userName;
-    }
-    getpassword(){
-        return this.password;
-    }
-    getfirstname(){
-        return this.firstName;
-    }
-    getlastname(){
-        return this.lastName;
-    }
-    getemail(){
-        return this.emailId;
-    }
-  }
-*/
 
 function User(uname, pword, fname, lname, email, userid)
 {
@@ -137,49 +98,3 @@ function User(uname, pword, fname, lname, email, userid)
 
 
 
-
-/**** USER ******/
-
-
-/*
-const loginprinting = document.getElementById("userprint");
-document.getElementById("users-btn").addEventListener('click', getUsers);
-
-function getUsers()
-{
-    fetch("http://localhost:3000/users")
-    .then((res)=>res.json())
-    .then((data) => {
-        
-        data.forEach((user) => {
-            let section = `
-            <div class="uprint">
-                <h3>${user.userName}</h3>
-                <h3>${user.password}</h3>
-                <br>
-            </div>
-            `
-            loginprinting.innerHTML+=section;
-        })
-    })
-    .catch((err)=>console.log(`Error! ${err}`));
-}
-*/
-
-
-
-
-/*register functionality
-let regForm = document.getElementById("reg-form");
-if(regForm) regForm.addEventListener('submit', register);
-
-<<<<<<< HEAD
-function register(e) {
-    e.preventDefault();
-
-    let userName = document.getElementById("username").value;
-    let password = document.getElementById("pword").value;
-
-    let user = new User(userName, password);        
-}
-*/

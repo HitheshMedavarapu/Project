@@ -63,15 +63,7 @@ async function getNote(note){
     return await con.query(sql);
 }
 
-/*
-const notes=[{
-    noteId:1233,
-    notecontent:"Hello"
-},{
-    noteId:9383,
-    notecontent:"How r u??"
-},
-];*/
+
 
 function getAllNotes(){
     return notes;
