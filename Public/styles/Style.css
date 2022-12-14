@@ -21,6 +21,14 @@ div{
     flex-wrap: wrap;
     justify-content:space-around;
 }
+header nav ul{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+
+
 
 a:hover{
     background-color: e9496c;

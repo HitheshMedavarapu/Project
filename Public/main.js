@@ -11,9 +11,9 @@ if(getCurrentUser()) {
 } else {
   nav.innerHTML = `
     <ul>
-      <li><a href="login.html">LOGIN</a></li>
-      <li><a href="register.html">REGISTER</a></li>
-      <li><a href="login.html">ABOUT</a></li>
+      <li><a href="login.html">SIGN-IN</a></li>
+      <li><a href="register.html">SIGN-UP</a></li>
+      
     </ul>
   `
 }
